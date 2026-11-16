@@ -1,4 +1,4 @@
-![Dyha Shop — Detalles inolvidables](src/assets/banner-dyha.svg)
+![Dyha Shop — Detalles inolvidables](assets/banner-dyha.svg)
 
 # Dyha Shop — Detalles inolvidables
 
