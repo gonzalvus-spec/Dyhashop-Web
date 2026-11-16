@@ -1,4 +1,4 @@
-![Dyha Shop — Detalles inolvidables](assets/banner-dyha.svg)
+![Dyha Shop — Detalles inolvidables](src/assets/banner-dyha.svg)
 
 # Dyha Shop — Detalles inolvidables
 
@@ -24,7 +24,8 @@ python -m http.server
 ```
 index.html            Página completa
 assets/               Logo, favicon y banner
-css/                  variables.css, components.css, animations.css
+css/                  global.css (único archivo que importa y agrega el resto)
+                      variables.css, components.css, animations.css
 js/
   data/catalog.js     Datos (productos, ocasiones, cinta, extras) y CONFIG
   components/         catalogRenderer.js, customizer.js, wishlistDrawer.js

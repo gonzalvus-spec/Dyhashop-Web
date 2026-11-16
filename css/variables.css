@@ -55,12 +55,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
-body > :not(.app):not(.toast):not(script) {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
+
 ::selection {
   background: var(--color-powder-soft);
   color: var(--color-crimson-ink);

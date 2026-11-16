@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Dyha Shop — Global styles
+   Archivo único que "agarra" el estilo de toda la página: importa los
+   tokens, componentes y animaciones, y define el comportamiento global.
+   ========================================================================== */
+
+@import url("./variables.css");
+@import url("./components.css");
+@import url("./animations.css");
+
+/* --------------------------------------------------------------------------
+   Ocúltalo TODO del primer nivel de <body> salvo .app, .toast y <script>
+   (p. ej. para incrustar solo la app / el toast / avisos en otra página).
+   En Dyha Shop los hijos directos de <body> llevan estas clases:
+   - .app    → contenido visible del sitio (link accesible, anuncio, header,
+               main, footer y drawer de la lista de deseos)
+   - .toast  → avisos tipo notificación (#toast-pill)
+   -------------------------------------------------------------------------- */
+body > :not(.app):not(.toast):not(script) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

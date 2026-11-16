@@ -56,18 +56,16 @@
         }
     </script>
 
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/components.css">
-    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/global.css">
 </head>
 <body class="font-sans bg-alabaster text-ink-900 antialiased">
 
-    <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[120] focus:rounded-full focus:bg-ink-900 focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white">
+    <a href="#contenido" class="app sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[120] focus:rounded-full focus:bg-ink-900 focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white">
         Saltar al contenido
     </a>
 
     <!-- Sprite de íconos vectoriales (sin dependencias externas) -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="absolute h-0 w-0 overflow-hidden" aria-hidden="true" focusable="false">
+    <svg xmlns="http://www.w3.org/2000/svg" class="app absolute h-0 w-0 overflow-hidden" aria-hidden="true" focusable="false">
         <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
         <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
         <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
@@ -107,7 +105,7 @@
     </svg>
 
     <!-- Barra de anuncio -->
-    <div class="relative z-40 bg-ink-900 text-white">
+    <div class="app relative z-40 bg-ink-900 text-white">
         <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-4 gap-y-1 px-4 py-2.5 text-[11px] font-medium tracking-[0.14em] sm:justify-between sm:px-6 sm:text-xs lg:px-8">
             <p class="inline-flex items-center gap-2 uppercase">
                 <svg class="h-3 w-3 text-crimson-300"><use href="#i-heart-fill"/></svg>
@@ -121,7 +119,7 @@
     </div>
 
     <!-- Navegación principal -->
-    <header id="site-header" class="sticky top-0 z-50 border-b border-line/90 glass">
+    <header id="site-header" class="app sticky top-0 z-50 border-b border-line/90 glass">
         <div class="mx-auto flex h-[74px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
             <a href="#hero" id="navbar-logo" class="group flex flex-none items-center gap-2.5" aria-label="Dyha Shop, ir al inicio">
                 <span id="navbar-logo-icon" class="flex h-11 w-11 items-center justify-center transition-transform duration-500 ease-expo group-hover:-rotate-3 group-hover:scale-105 sm:h-12 sm:w-12">
@@ -191,7 +189,7 @@
         </div>
     </header>
 
-    <main id="contenido">
+    <main id="contenido" class="app">
         <!-- Hero editorial + ilustración animada -->
         <section id="hero" class="hero-surface relative w-full overflow-hidden">
             <div class="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-crimson-100/40 blur-3xl"></div>
@@ -958,7 +956,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-line bg-white">
+    <footer class="app border-t border-line bg-white">
         <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
             <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.35fr_.75fr_.9fr] lg:gap-14">
                 <div>
@@ -1017,7 +1015,7 @@
     </footer>
 
     <!-- Drawer: Mi Lista de Deseos -->
-    <div id="wishlist-root" class="fixed inset-0 z-[80] pointer-events-none" aria-hidden="true">
+    <div id="wishlist-root" class="app fixed inset-0 z-[80] pointer-events-none" aria-hidden="true">
         <div id="wishlist-overlay" class="absolute inset-0 bg-ink-900/45 opacity-0 backdrop-blur-[2px]"></div>
 
         <aside id="wishlist-panel" role="dialog" aria-modal="true" aria-labelledby="wishlist-title" class="absolute right-0 top-0 flex h-full w-full max-w-md translate-x-full flex-col bg-white shadow-2xl" inert>
@@ -1067,7 +1065,7 @@
     </div>
 
     <!-- Toast -->
-    <div class="pointer-events-none fixed inset-x-0 bottom-6 z-[100] flex justify-center px-4" role="status" aria-live="polite">
+    <div class="toast pointer-events-none fixed inset-x-0 bottom-6 z-[100] flex justify-center px-4" role="status" aria-live="polite">
         <div id="toast-pill" class="pointer-events-auto flex max-w-[92vw] items-center gap-3 rounded-full border border-white/10 bg-ink-900 px-4 py-3 text-white shadow-2xl sm:px-5">
             <span class="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-crimson-600/20 text-crimson-300">
                 <svg class="h-3.5 w-3.5"><use href="#i-heart-fill"/></svg>
