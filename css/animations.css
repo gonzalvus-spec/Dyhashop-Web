@@ -1,0 +1,281 @@
+/* ==========================================================================
+   Dyha Shop — Motion system
+   ========================================================================== */
+
+@keyframes floatHeart {
+  0%, 100% { transform: translateY(0) rotate(-7deg); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+.logo-heart {
+  animation: floatHeart 4.2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes lidTilt {
+  0%, 100% { transform: rotate(12deg) translate(0, 0); }
+  50% { transform: rotate(14deg) translate(1px, -2px); }
+}
+
+.logo-lid {
+  animation: lidTilt 5.5s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 80% 90%;
+}
+
+/* Editorial ticker (marquee continuo y sin cortes) */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  will-change: transform;
+  animation: tickerMove 38s linear infinite;
+  animation-play-state: running;
+}
+
+.ticker-group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 2rem;
+  padding-right: 2rem;
+  white-space: nowrap;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes tickerMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Catalog cards */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(16px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.product-card {
+  animation: cardIn .6s var(--ease) backwards;
+  animation-delay: calc(var(--i, 0) * 55ms);
+}
+
+/* Wishlist counter */
+@keyframes badgeBump {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.28); }
+  100% { transform: scale(1); }
+}
+
+.badge-bump { animation: badgeBump .45s var(--ease); }
+
+/* Closing call-to-action stamp */
+@keyframes slowSpin {
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: slowSpin 46s linear infinite;
+  transform-origin: center;
+}
+
+/* Live preview dot */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .45; transform: scale(.82); }
+}
+
+.live-dot { animation: pulseDot 2.4s ease-in-out infinite; }
+
+/* --------------------------------------------------------------------------
+   Hero brand illustration
+   -------------------------------------------------------------------------- */
+.hero-art {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-svg {
+  overflow: visible;
+  transition: transform .6s var(--ease);
+}
+
+.hero-art:hover .hero-svg,
+.hero-art:focus-visible .hero-svg {
+  transform: translateY(-6px);
+}
+
+/* Entrada con rebote suave */
+.hero-svg .hero-enter {
+  transform-box: fill-box;
+  transform-origin: 50% 72%;
+}
+
+.hero-svg.is-entering .hero-enter {
+  animation: heroEntrance 1.15s cubic-bezier(.22, 1.28, .36, 1) both;
+}
+
+@keyframes heroEntrance {
+  0% { opacity: 0; transform: translateY(38px) scale(.88); }
+  55% { opacity: 1; }
+  74% { transform: translateY(-9px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Tapa que se eleva en bucle */
+.hero-svg .hero-lid {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transform: translateY(3px) rotate(-6deg);
+}
+
+.hero-svg.is-looping .hero-lid {
+  animation: heroLid 4.6s ease-in-out infinite;
+}
+
+@keyframes heroLid {
+  0%, 100% { transform: translateY(3px) rotate(-6.5deg); }
+  50% { transform: translateY(-8px) rotate(-3deg); }
+}
+
+/* Micro-oscilación del lazo */
+.hero-svg .hero-bow {
+  transform-box: fill-box;
+  transform-origin: 50% 92%;
+  transform: rotate(-3deg);
+}
+
+.hero-svg.is-looping .hero-bow {
+  animation: heroBow 3.4s ease-in-out infinite;
+}
+
+@keyframes heroBow {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(5deg); }
+}
+
+/* Corazones que escapan de la caja */
+.hero-svg .hero-heart {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+}
+
+.hero-svg.is-looping .hero-heart {
+  animation: heroHeartFloat 5s ease-in-out infinite;
+  animation-delay: var(--hd, 0s);
+}
+
+@keyframes heroHeartFloat {
+  0% { opacity: 0; transform: translateY(16px) scale(.5); }
+  16% { opacity: 1; }
+  72% { opacity: .95; }
+  100% { opacity: 0; transform: translateY(-96px) scale(1.05); }
+}
+
+/* Destellos */
+.hero-svg .hero-spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: .35;
+}
+
+.hero-svg.is-looping .hero-spark {
+  animation: heroTwinkle 3.6s ease-in-out infinite;
+  animation-delay: var(--sd, 0s);
+}
+
+@keyframes heroTwinkle {
+  0%, 100% { opacity: .28; transform: scale(.7) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.08) rotate(16deg); }
+}
+
+/* Anillo orbital decorativo con corazones */
+.hero-svg .hero-orbit {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heroOrbit 42s linear infinite;
+}
+
+@keyframes heroOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Ráfaga de corazones + brillo al interactuar */
+.hero-svg .hero-glow {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.hero-svg .hero-burst {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.hero-svg.is-bursting .hero-glow {
+  animation: heroGlowPulse 1.1s ease-out both;
+}
+
+.hero-svg.is-bursting .hero-burst {
+  animation: heroBurst var(--bd, 1s) cubic-bezier(.2, .8, .3, 1) var(--bdelay, 0s) both;
+}
+
+@keyframes heroGlowPulse {
+  0% { opacity: 0; transform: scale(.82); }
+  30% { opacity: .95; }
+  100% { opacity: 0; transform: scale(1.18); }
+}
+
+@keyframes heroBurst {
+  0% { opacity: 0; transform: translate(0, 0) scale(.35) rotate(0deg); }
+  22% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--bx, 0px), var(--by, -120px)) scale(1.08) rotate(var(--br, 0deg)); }
+}
+
+/* Pulso breve del logo en el navbar */
+@keyframes logoPulse {
+  0% { transform: scale(1) rotate(0deg); }
+  35% { transform: scale(1.16) rotate(-5deg); }
+  70% { transform: scale(.96) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.logo-pulse {
+  animation: logoPulse .7s cubic-bezier(.34, 1.56, .64, 1);
+  transform-origin: center;
+}
+
+/* Scroll reveal */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .85s var(--ease), transform .85s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

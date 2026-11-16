@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 130" fill="none" role="img" aria-labelledby="dyhaLogoTitle">
+  <title id="dyhaLogoTitle">Dyha Shop</title>
+  <defs>
+    <style>
+      .logo-heart { transform-box: fill-box; transform-origin: center; }
+      .logo-lid { transform-box: fill-box; transform-origin: 80% 90%; }
+      @media (prefers-reduced-motion: no-preference) {
+        .logo-heart { animation: dyhaHeart 4.2s ease-in-out infinite; }
+        .logo-lid { animation: dyhaLid 5.5s ease-in-out infinite; }
+      }
+      @keyframes dyhaHeart {
+        0%, 100% { transform: translateY(0) rotate(-7deg); }
+        50% { transform: translateY(-5px) rotate(-1deg); }
+      }
+      @keyframes dyhaLid {
+        0%, 100% { transform: rotate(12deg) translate(0, 0); }
+        50% { transform: rotate(14deg) translate(1px, -2px); }
+      }
+    </style>
+  </defs>
+
+  <!-- Corazón flotante -->
+  <path class="logo-heart" d="M36 36C36 31.5 32.5 28 28.5 28C25.8 28 23.5 29.5 22.5 31.6C21.5 29.5 19.2 28 16.5 28C12.5 28 9 31.5 9 36C9 43.5 22.5 51 22.5 51C22.5 51 36 43.5 36 36Z" fill="#111827"/>
+
+  <!-- Tapa inclinada con lazo rojo -->
+  <g class="logo-lid">
+    <path d="M84 25C79 14 66 13 64 21C62 28 74 31 82 30" stroke="#E11D48" stroke-width="5" stroke-linecap="round"/>
+    <path d="M87 26C95 16 108 19 107 27C106 34 94 34 86 31" stroke="#E11D48" stroke-width="5" stroke-linecap="round"/>
+    <rect x="46" y="26" width="76" height="15" rx="5" transform="rotate(14 46 26)" fill="#FFFFFF" stroke="#111827" stroke-width="4.5"/>
+    <rect x="78" y="34" width="12" height="14" transform="rotate(14 78 34)" fill="#E11D48"/>
+  </g>
+
+  <!-- Cuerpo de la caja -->
+  <rect x="34" y="54" width="72" height="54" rx="6" fill="#FFFFFF" stroke="#111827" stroke-width="4.5"/>
+  <rect x="63" y="56.2" width="14" height="49.6" fill="#E11D48"/>
+  <rect x="36.2" y="74" width="67.6" height="14" fill="#E11D48"/>
+
+  <!-- Línea base -->
+  <line x1="16" y1="108" x2="124" y2="108" stroke="#111827" stroke-width="4.5" stroke-linecap="round"/>
+</svg>

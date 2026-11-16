@@ -1,0 +1,417 @@
+/* ==========================================================================
+   Dyha Shop — Components
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Surfaces
+   -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   Hero: altura ajustada a la pantalla y cinta al ras del borde inferior
+   El anuncio superior (~36px) y el header sticky (75px) están en flujo normal;
+   se descuentan para que la cinta quede exactamente sobre el borde inferior
+   visible del primer plano. Si ambos pasaran a ser "fixed" u "absolute",
+   usar simplemente min-height: 100svh;
+   -------------------------------------------------------------------------- */
+#hero {
+  min-height: calc(100vh - 111px);
+  min-height: calc(100svh - 111px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-surface {
+  background:
+    radial-gradient(58% 62% at 88% 4%, rgba(255, 228, 230, .62), transparent 68%),
+    radial-gradient(48% 58% at 4% 92%, rgba(255, 241, 242, .95), transparent 72%),
+    linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
+}
+
+.dot-field {
+  background-image: radial-gradient(rgba(17, 24, 39, .06) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.stage-surface {
+  background:
+    radial-gradient(80% 70% at 12% 0%, #FFFFFF 0%, rgba(255, 255, 255, 0) 58%),
+    radial-gradient(95% 85% at 100% 100%, #FFE4E6 0%, #FFF1F2 52%, #FFF9F9 100%);
+}
+
+.stage-surface::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(225, 29, 72, .16) 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: .45;
+  pointer-events: none;
+}
+
+.cta-surface {
+  background:
+    radial-gradient(72% 120% at 88% 0%, rgba(225, 29, 72, .30), transparent 62%),
+    radial-gradient(60% 90% at 0% 100%, rgba(136, 19, 55, .22), transparent 66%),
+    #111827;
+}
+
+.cta-surface::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, .10) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: linear-gradient(120deg, #000, transparent 70%);
+  pointer-events: none;
+}
+
+.glass {
+  background: rgba(255, 255, 255, .72);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+/* --------------------------------------------------------------------------
+   Editorial accent
+   -------------------------------------------------------------------------- */
+.accent-underline {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.accent-underline svg {
+  position: absolute;
+  left: -2%;
+  bottom: -0.10em;
+  width: 104%;
+  height: .30em;
+  color: #FDA4AF;
+  overflow: visible;
+}
+
+/* --------------------------------------------------------------------------
+   Navbar
+   -------------------------------------------------------------------------- */
+#site-header {
+  transition: box-shadow .45s var(--ease), background-color .45s var(--ease);
+}
+
+#site-header.is-scrolled {
+  box-shadow: 0 14px 40px -30px rgba(17, 24, 39, .45);
+}
+
+.nav-link { position: relative; }
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 1.5px;
+  background: var(--crimson);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .45s var(--ease);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+#mobile-menu {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity .35s var(--ease), transform .35s var(--ease), visibility .35s;
+}
+
+#mobile-menu.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Catalog filters
+   -------------------------------------------------------------------------- */
+.filter-indicator {
+  transition: transform .55s var(--ease), width .55s var(--ease);
+  will-change: transform, width;
+}
+
+.filter-btn { transition: color .3s var(--ease); }
+.filter-btn[aria-selected="true"] { color: #fff; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* --------------------------------------------------------------------------
+   Customizer controls
+   -------------------------------------------------------------------------- */
+.choice {
+  background: #fff;
+  border: 1px solid var(--line);
+  transition:
+    border-color .35s var(--ease),
+    background-color .35s var(--ease),
+    transform .35s var(--ease),
+    box-shadow .35s var(--ease);
+}
+
+.choice:hover {
+  border-color: #FECDD3;
+  transform: translateY(-1px);
+}
+
+.choice:active { transform: translateY(0); }
+
+.choice[aria-pressed="true"] {
+  border-color: #111827;
+  background: #FFF1F2;
+  box-shadow: 0 0 0 1px #111827;
+}
+
+.choice .choice-mark {
+  opacity: 0;
+  transform: scale(.4);
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+
+.choice[aria-pressed="true"] .choice-mark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.choice[aria-pressed="true"] .choice-icon {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+
+.choice-icon {
+  transition:
+    background-color .35s var(--ease),
+    color .35s var(--ease),
+    border-color .35s var(--ease);
+}
+
+.extra-choice {
+  background: #fff;
+  border: 1px solid var(--line);
+  transition:
+    border-color .3s var(--ease),
+    background-color .3s var(--ease),
+    transform .3s var(--ease);
+}
+
+.extra-choice:hover { border-color: #FECDD3; }
+
+.extra-choice[aria-pressed="true"] {
+  border-color: #111827;
+  background: #FFF1F2;
+  box-shadow: 0 0 0 1px #111827;
+}
+
+.extra-check {
+  opacity: 0;
+  transform: scale(.5);
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+
+.extra-choice[aria-pressed="true"] .extra-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ribbon-choice {
+  background: #fff;
+  border: 1px solid var(--line);
+  transition:
+    border-color .3s var(--ease),
+    box-shadow .3s var(--ease),
+    transform .3s var(--ease);
+}
+
+.ribbon-choice:hover {
+  border-color: #FECDD3;
+  transform: translateY(-1px);
+}
+
+.ribbon-choice[aria-pressed="true"] {
+  border-color: #111827;
+  box-shadow: 0 0 0 1px #111827;
+}
+
+/* --------------------------------------------------------------------------
+   Live preview: gift box & dedication card
+   -------------------------------------------------------------------------- */
+.preview-box {
+  position: relative;
+  width: 74%;
+  margin: 0 auto;
+  aspect-ratio: 1 / .94;
+  border-radius: 1.4rem;
+  background: var(--box-bg);
+  border: 1px solid rgba(17, 24, 39, .12);
+  box-shadow:
+    0 34px 54px -30px rgba(17, 24, 39, .48),
+    inset 0 1px 0 rgba(255, 255, 255, .9);
+  transform: rotate(-3deg);
+  transition:
+    background-color .5s var(--ease),
+    border-color .5s var(--ease),
+    box-shadow .5s var(--ease);
+}
+
+.preview-box .lid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 17%;
+  height: 1px;
+  background: rgba(17, 24, 39, .12);
+}
+
+.preview-box .band-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 17%;
+  transform: translateX(-50%);
+  background: var(--ribbon);
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, .22),
+    inset -1px 0 0 rgba(0, 0, 0, .06);
+  transition: background-color .45s var(--ease);
+}
+
+.preview-box .band-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 17%;
+  transform: translateY(-50%);
+  background: var(--ribbon);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .22),
+    inset 0 -1px 0 rgba(0, 0, 0, .06);
+  transition: background-color .45s var(--ease);
+}
+
+.preview-bow {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  width: 46%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 8px 12px rgba(17, 24, 39, .16));
+  transition: filter .4s var(--ease);
+}
+
+.preview-box:hover .preview-bow {
+  filter: drop-shadow(0 10px 16px rgba(17, 24, 39, .22));
+}
+
+.box-label {
+  position: absolute;
+  top: 7%;
+  left: 7%;
+  background: rgba(255, 255, 255, .93);
+  border: 1px solid rgba(17, 24, 39, .08);
+  border-radius: 999px;
+  padding: .38rem .85rem;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #111827;
+  white-space: nowrap;
+  box-shadow: 0 6px 14px -10px rgba(17, 24, 39, .4);
+}
+
+.dedication-card {
+  position: relative;
+  width: 82%;
+  margin: -15% 0 0 auto;
+  background: #FFFDFB;
+  border: 1px solid #F3E4E0;
+  border-radius: 1.15rem;
+  padding: 1.15rem 1.25rem 1rem;
+  transform: rotate(2deg);
+  box-shadow: 0 26px 44px -28px rgba(17, 24, 39, .42);
+  transition: transform .55s var(--ease), box-shadow .55s var(--ease);
+}
+
+.dedication-card:hover {
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow: 0 32px 50px -28px rgba(17, 24, 39, .48);
+}
+
+.dedication-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 4.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   Wishlist drawer
+   -------------------------------------------------------------------------- */
+#wishlist-root { pointer-events: none; }
+#wishlist-root.is-open { pointer-events: auto; }
+
+#wishlist-overlay { transition: opacity .5s var(--ease); }
+#wishlist-panel { transition: transform .55s var(--ease); }
+
+#wishlist-root.is-open #wishlist-overlay { opacity: 1; }
+#wishlist-root.is-open #wishlist-panel { transform: translateX(0); }
+
+#wishlist-items::-webkit-scrollbar { width: 6px; }
+#wishlist-items::-webkit-scrollbar-track { background: transparent; }
+#wishlist-items::-webkit-scrollbar-thumb {
+  background: #E5E7EB;
+  border-radius: 999px;
+}
+
+/* --------------------------------------------------------------------------
+   Toast
+   -------------------------------------------------------------------------- */
+#toast-pill {
+  opacity: 0;
+  transform: translateY(14px) scale(.97);
+  transition: opacity .4s var(--ease), transform .4s var(--ease);
+}
+
+#toast-pill.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* --------------------------------------------------------------------------
+   Utilities
+   -------------------------------------------------------------------------- */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Dyha Shop — Design tokens & base
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --color-alabaster: #FAFAFA;
+  --color-white: #FFFFFF;
+  --color-line: #EFEFEF;
+  --color-ink: #111827;
+  --color-ink-soft: #4B5563;
+  --color-ink-muted: #6B7280;
+  --color-crimson: #E11D48;
+  --color-crimson-deep: #BE123C;
+  --color-crimson-ink: #881337;
+  --color-powder: #FFF1F2;
+  --color-powder-soft: #FFE4E6;
+  --color-whatsapp: #128C7E;
+
+  /* Backward-compatible aliases used by components */
+  --line: var(--color-line);
+  --crimson: var(--color-crimson);
+  --crimson-deep: var(--color-crimson-deep);
+  --ink: var(--color-ink);
+  --powder: var(--color-powder);
+  --alabaster: var(--color-alabaster);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+
+  /* Motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Elevation */
+  --shadow-soft: 0 1px 2px rgba(17, 24, 39, .04), 0 14px 36px -18px rgba(17, 24, 39, .16);
+  --shadow-lift: 0 2px 4px rgba(17, 24, 39, .04), 0 28px 56px -26px rgba(17, 24, 39, .22);
+  --shadow-rose: 0 18px 48px -22px rgba(225, 29, 72, .42);
+
+  /* Dynamic preview values (updated from JS) */
+  --ribbon: #E11D48;
+  --box-bg: #FFFFFF;
+}
+
+html {
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--color-alabaster);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-powder-soft);
+  color: var(--color-crimson-ink);
+}
+
+/* Editorial type helpers */
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+.font-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+}
+
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-crimson);
+  outline-offset: 3px;
+}
+
+/* Numeric alignment for counters and quantities */
+.price-free { font-variant-numeric: tabular-nums; }
+
+/* Generic icon sizing for the inline SVG sprite */
+.icon {
+  width: 1em;
+  height: 1em;
+  flex: none;
+}
